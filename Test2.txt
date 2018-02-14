@@ -1,0 +1,15 @@
+﻿ABC*+
+
+A	A
+B	AB
+C	ABC
+*	A(B*C)	)C*B(
++	A(B*C	))
+
+
+
+A+B*C
+(A+(B*C))
+
+
+A((+B)*C))
