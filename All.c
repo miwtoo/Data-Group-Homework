@@ -158,33 +158,40 @@ const char *getPostfix(char infix[arys]){
     return postfix;
 }
 
-int main(int argc, char** argv) {
-
+int main(){
+    int choice;
     char infix[arys], postfix[arys];
+    printf("Enter Menu Number Following\n");
+    printf("1. Infix to Postfix\n");
+    printf("2. Postfix to Infix\n");
+    printf("99. Exit\n");
+    printf("-------------------------------------\n");
+    do{
+        printf("Enter choice : ");
+        scanf("%d",&choice);
+        switch(choice){
+            case 1:
+                printf("Enter infix : ");
+                scanf("%d",&infix);
+                //gets(infix);
 
-    while(1){
-        printf("Enter infix : ");
-        gets(infix);
-
-        if(select(infix) == -1){
-            printf("Invalid expression\n\n");
+                if(select(infix) == -1){
+                    printf("Invalid expression\n\n");
+                }
+                else if(select(infix) == -2){
+                    printf("Please input operator\n\n");
+                }
+                else if(select(infix) == 1 || select(infix) == 2){
+                    printf("%s", getPostfix(infix));
+                    printf("\n\n");
+                }
+                else if(select(infix) == 3){
+                    // ตัวเลข
+                    //printf("This num only\n");
+                    printf("Postfix : %s\n", getPostfix(infix));
+                    //getPostfix(infix);
+                }
+                break;
         }
-        else if(select(infix) == -2){
-            printf("Please input operator\n\n");
-        }
-        else if(select(infix) == 1 || select(infix) == 2){
-            printf("%s", getPostfix(infix));
-            printf("\n\n");
-        }
-        else if(select(infix) == 3){
-            // ตัวเลข
-            //printf("This num only\n");
-            printf("Postfix : %s\n", getPostfix(infix));
-            //getPostfix(infix);
-        }
-
-    }
-
-    return (EXIT_SUCCESS);
+    }while(choice != 99);
 }
-
